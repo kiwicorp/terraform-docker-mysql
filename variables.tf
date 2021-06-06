@@ -81,7 +81,6 @@ variable "init" {
   type = list(object({
     filename    = string
     source      = string
-    source_hash = string
   }))
   description = <<-DESCRIPTION
   A list of init files that should be uploaded inside the container.
