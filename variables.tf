@@ -96,7 +96,7 @@ variable "internal_port" {
   MySQL internal port. Should be the same as the one specified in the
   configuration.
   DESCRIPTION
-  default     = 6379
+  default     = 3306
 }
 
 variable "external_port" {
@@ -105,7 +105,7 @@ variable "external_port" {
   MySQL external port. Should be the same as the one specified in the
   configuration. Set this to 0 for automatic port allocation.
   DESCRIPTION
-  default     = 6379
+  default     = 3306
 }
 
 variable "ip" {
