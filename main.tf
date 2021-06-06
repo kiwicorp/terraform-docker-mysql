@@ -46,7 +46,7 @@ resource "docker_container" "this" {
     for_each = local.config
     iterator = upload
     content {
-      file    = "/etc/mysql/conf.d/${upload.value.filename}"
+      file    = upload.value.filename
       content = upload.value.content
     }
   }
@@ -99,10 +99,10 @@ locals {
     "mysql_${local.uuid}"
   )
 
-  config = var.upload_config ? [{
-    content = var.config_content
-    file    = var.config_file
-  }] : []
+  config = [for _, v in var.config: {
+    file    = "/etc/mysql/conf.d/${v.filename}"
+    content = v.content
+  }]
 
   env_map = {
     MYSQL_ROOT_PASSWORD        = var.mysql_root_password
