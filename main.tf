@@ -43,7 +43,7 @@ resource "docker_container" "this" {
 
   # upload configuration files
   dynamic "upload" {
-    for_each = var.config
+    for_each = local.config
     iterator = upload
     content {
       file    = "/etc/mysql/conf.d/${upload.value.filename}"
