@@ -55,7 +55,7 @@ resource "docker_container" "this" {
   dynamic "upload" {
     for_each = local.init
     iterator = upload
-    content = {
+    content {
       file        = upload.value.filename
       source      = upload.value.source
       source_hash = upload.value.source_hash
