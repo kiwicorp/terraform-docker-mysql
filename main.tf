@@ -117,7 +117,7 @@ locals {
 
   env = [for k, v in local.env_map : format("%s=%s", k, v) if v != ""]
 
-  init = [for k, v in var.init : {
+  init = [for _, v in var.init : {
     filename    = "/docker-entrypoint-initdb.d/${v.filename}"
     source      = v.source
     source_hash = v.source_hash != "" ? v.source_hash : filesha256(v.source)
