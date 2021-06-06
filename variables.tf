@@ -75,7 +75,6 @@ variable "config" {
   Each file will be uploaded to '/etc/mysql/conf.d/{filename}'.
   DESCRIPTION
   default     = []
-  sensitive   = true
 }
 
 variable "init" {
