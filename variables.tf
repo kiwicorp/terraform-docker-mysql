@@ -89,7 +89,6 @@ variable "init" {
   Each file will be uploaded to '/docker-entrypoint-initdb.d/{filename}'.
   DESCRIPTION
   default     = []
-  sensitive   = true
 }
 
 variable "internal_port" {
